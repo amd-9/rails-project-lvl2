@@ -4,6 +4,10 @@ setup:
 start:
 	bin/rails s -p 3000 -b "0.0.0.0"
 
+start-railway:
+	bin/rails db:migrate
+	bin/rails s -p ${PORT:-3000} -b "0.0.0.0"
+
 install:
 	bundle install
 
