@@ -22,6 +22,6 @@ lint:
 	slim-lint
 
 lint-fix:
-	rubocop --auto-correct
+	rubocop -A
 
 .PHONY: test
