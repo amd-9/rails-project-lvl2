@@ -63,6 +63,8 @@ group :development do
   gem "web-console"
 
   gem "slim_lint"
+  gem 'rubocop-performance', require: false
+  gem 'rubocop-rails', require: false
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"

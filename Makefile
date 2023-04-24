@@ -19,6 +19,7 @@ test:
 
 lint:
 	rubocop
+	slim-lint
 
 lint-fix:
 	rubocop --auto-correct

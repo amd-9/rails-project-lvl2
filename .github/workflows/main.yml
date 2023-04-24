@@ -32,7 +32,7 @@ jobs:
       - name: Install dependencies
         run: make install
         
-      - name: Run rubocop lint
+      - name: Lint rails and slim template
         run: make lint
         
       - name: Run tests
