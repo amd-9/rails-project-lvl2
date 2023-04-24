@@ -39,6 +39,11 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 
+gem "slim-rails"
+
+gem "sentry-ruby"
+gem "sentry-rails"
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
@@ -57,6 +62,8 @@ group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
 
+  gem "slim_lint"
+
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
 
@@ -69,6 +76,7 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
+  gem 'minitest-power_assert'
 end
 
 group :production do
