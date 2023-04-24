@@ -6,6 +6,7 @@ start:
 
 start-railway:
 	bin/rails db:migrate
+	bin/rails assets:precompile
 	bin/rails s -p ${PORT} -b "0.0.0.0"
 
 install:
