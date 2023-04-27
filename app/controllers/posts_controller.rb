@@ -21,9 +21,8 @@ class PostsController < ApplicationController
 
   # POST /posts or /posts.json
   def create
-    return 'not implemented'
-
     @post = Post.new(post_params)
+    @post.user = current_user
 
     respond_to do |format|
       if @post.save
@@ -70,6 +69,6 @@ class PostsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def post_params
-    params.require(:post).permit(:name, :title, :content)
+    params.require(:post).permit(:title, :body, :category_id)
   end
 end

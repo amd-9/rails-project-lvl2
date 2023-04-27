@@ -4,8 +4,10 @@ h1 Posts
 
 #posts
   - @posts.each do |post|
-    == render post
-    p
-      = link_to "Show this post", post
+    .card
+      .card-body
+        h5.card-title 
+          = post.title
+        p.card-text 
+          = post.body
 
-= link_to "New post", new_post_path

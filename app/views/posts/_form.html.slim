@@ -7,16 +7,16 @@
           li = error.full_message
 
   div
-    = form.label :name, style: "display: block"
-    = form.text_field :name
-
-  div
     = form.label :title, style: "display: block"
     = form.text_field :title
 
   div
-    = form.label :content, style: "display: block"
-    = form.text_area :content
+    = form.label :body, style: "display: block"
+    = form.text_area :body
 
+  div 
+    = form.label :category, style: "display: block"
+    = form.collection_select :category_id, Category.order(:name), :id, :name
+    
   div
     = form.submit
