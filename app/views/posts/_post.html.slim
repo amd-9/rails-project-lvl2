@@ -1,7 +1,6 @@
-div id="#{dom_id post}"
+.row id="#{dom_id post}"
+  h1.mb-4.mb-lg5 
+    = post.title
   p
-    strong Title:
-    =< post.title
-  p
-    strong Body:
-    =< post.body
+  p 
+    = post.body

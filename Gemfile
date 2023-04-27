@@ -51,6 +51,8 @@ gem 'sentry-ruby'
 
 gem 'devise'
 
+gem 'simple_form'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
