@@ -53,6 +53,8 @@ gem 'devise'
 
 gem 'simple_form'
 
+gem 'ancestry'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 

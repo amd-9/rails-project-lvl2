@@ -9,4 +9,7 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   root 'posts#index'
+  resources :posts do
+    resources :comments
+  end
 end

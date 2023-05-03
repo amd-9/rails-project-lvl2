@@ -10,11 +10,13 @@ html
   body
     nav.navbar.navbar-expand-lg.bg-body-tertiary
       div.container-fluid
-        a.navbar-brand href="#" Mega Blog
+        = link_to 'Mega Blog', posts_path, class: 'navbar-brand'
         ul.navbar-nav
           - if user_signed_in?
             li.nav-item
               = link_to current_user.email, edit_user_registration_path, class: 'nav-link link-dark'
+            li.nav-item
+              = link_to 'New post', new_post_path, class: 'nav-link link-dark'
             li.nav-item
               = link_to 'Sign Out', destroy_user_session_path, class: 'nav-link link-dark'
           - else 
