@@ -5,7 +5,7 @@ article
 
 span = 'Comments'
 
-== render "comments/form", comment: @comment
+== render "comments/form", comment: PostComment.new(:post_id => @post.id)
 
-- @post.comments.each do |comment|
-  div = comment.content
+- @comments.each do |comment|
+  == render "comments/comment", comment: comment
