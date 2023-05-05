@@ -7,9 +7,7 @@ start:
 start-railway:
 	yarn run build
 	yarn run build:css
-	bin/rails db:drop
 	bin/rails db:migrate
-	bin/rails db:seed
 	bin/rails assets:precompile
 	bin/rails s -p ${PORT} -b "0.0.0.0"
 
