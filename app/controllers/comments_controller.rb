@@ -7,9 +7,9 @@ class CommentsController < ApplicationController
     @comment.post_id = params[:post_id]
 
     if @comment.save
-      redirect_to post_url(@comment.post_id), notice: 'Post comment was successfully created.'
+      redirect_to post_url(@comment.post_id), notice: t('.success')
     else
-      redirect_to post_url(@comment.post_id), notice: 'Error creating post comment.'
+      redirect_to post_url(@comment.post_id), notice: t('.fail')
     end
   end
 

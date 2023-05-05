@@ -1,0 +1,5 @@
+en:
+  comments:
+    create:
+      success: Post comment was successfully created.
+      fail: Error creating post comment.

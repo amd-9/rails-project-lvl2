@@ -25,9 +25,8 @@ class PostsController < ApplicationController
     @post.user = current_user
 
     if @post.save
-      redirect_to post_url(@post), notice: 'Post was successfully created.'
+      redirect_to post_url(@post), notice: t('post.create.success')
     else
-      debugger
       render :new, status: :unprocessable_entity
     end
   end

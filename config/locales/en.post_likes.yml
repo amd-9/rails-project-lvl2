@@ -1,0 +1,6 @@
+en:
+  likes:
+    create:
+      fail: Error creating like
+    destroy:
+      fail: Error destroing like
