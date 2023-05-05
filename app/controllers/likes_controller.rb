@@ -2,14 +2,17 @@
 
 class LikesController < ApplicationController
   def create
-    return redirect_to post_url(params[:post_id]), error: 'Error creating like' if PostLike.exists?(:user => current_user) 
+    if PostLike.exists?(user: current_user)
+      return redirect_to post_url(params[:post_id]),
+                         error: 'Error creating like'
+    end
 
     @like = PostLike.new
     @like.user = current_user
     @like.post_id = params[:post_id]
 
     if @like.save
-      redirect_to post_url(@like.post_id) 
+      redirect_to post_url(@like.post_id)
     else
       redirect_to post_url(@like.post_id), error: 'Error creating like'
     end
@@ -17,7 +20,7 @@ class LikesController < ApplicationController
 
   def destroy
     @like = PostLike.find(params[:id])
-    
+
     return redirect_to post_url(@like.post_id), error: 'Error creating like' if @like.user != current_user
 
     @like.destroy

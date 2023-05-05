@@ -33,12 +33,11 @@ class LikesControllerTest < ActionDispatch::IntegrationTest
       post post_likes_url(@post)
     end
 
-    assert_redirected_to post_url(@post)    
+    assert_redirected_to post_url(@post)
   end
 
   test 'should not remove like of another user from post' do
     delete post_like_url(@post, @second_like)
-
 
     assert { PostLike.exists? @second_like.id }
     assert_redirected_to post_url(@post)
