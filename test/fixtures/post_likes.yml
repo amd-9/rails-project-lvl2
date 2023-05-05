@@ -5,10 +5,11 @@
 # below each fixture, per the syntax in the comments below
 #
 one:
-  email: developer1@test.io
-
+  user: three
+  post: one
+# column: value
+#
 two:
-  email: developer2@test.io
-
-three:
-  email: developer3@test.io
+  user: two
+  post: one
+# column: value

@@ -4,10 +4,14 @@ h1 Posts
 
 #posts
   - @posts.each do |post|
-    .card
+    .card.mb-3
       .card-body
-        h5.card-title
+        h2.card-title
           = link_to post.title, post_path(post), class: 'nav-link link-dark'            
         p.card-text 
-          = post.body
+          = truncate post.body, length: 500
+      .card-footer 
+        span.me-2 = "Likes: #{post.likes.count}"
+        span.me-2 = "#{distance_of_time_in_words(post.created_at, DateTime.now)} ago" 
+        span = post.user.email
 
