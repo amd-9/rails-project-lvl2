@@ -3,7 +3,7 @@
 class CommentsController < ApplicationController
   def create
     @comment = PostComment.new(comment_params)
-    @comment.creator = current_user
+    @comment.user = current_user
     @comment.post_id = params[:post_id]
 
     if @comment.save

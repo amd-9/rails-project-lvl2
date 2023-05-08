@@ -1,7 +1,7 @@
 .card.mt-2
   h5.card-header
     span.me-2 
-      = comment.creator.email
+      = comment.user.email
     span.fs-6.text-muted
       = "#{distance_of_time_in_words(comment.created_at, DateTime.now)} ago" 
   .card-body

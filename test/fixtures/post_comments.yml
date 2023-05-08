@@ -2,23 +2,23 @@
 
 one:
   content: First comment
-  creator: one
+  user: one
   post: one
 
 two:
   content: Second comment
-  creator: one
+  user: one
   post: one
 
 nested:
   content: Comment with nested comment
-  creator: one
+  user: one
   post: one
   ancestry: <%= ActiveRecord::FixtureSet.identify(:with_comments) %>
 
 deep_nested:
   content: Comment with deep nested comments
-  creator: one
+  user: one
   post: one
   ancestry: <%= [ActiveRecord::FixtureSet.identify(:with_comments), ActiveRecord::FixtureSet.identify(:nested)].join('/') %>
 
