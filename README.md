@@ -6,25 +6,16 @@
 
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+MegaBlog, one blog to rule them all.
 
-Things you may want to cover:
+## System requirements
+* Ruby >= 3.1.2
+* PostgreSQL 15
+* SQLite 3 for local development
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Setup
+```sh
+make setup
+make install
+make test
+```
