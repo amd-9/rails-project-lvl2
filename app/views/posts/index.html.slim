@@ -13,5 +13,5 @@ h1 Posts
       .card-footer 
         span.me-2 = "Likes: #{post.likes.count}"
         span.me-2 = "#{distance_of_time_in_words(post.created_at, DateTime.now)} ago" 
-        span = post.user.email
+        span = post.creator.email
 

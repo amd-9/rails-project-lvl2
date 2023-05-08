@@ -5,11 +5,11 @@
 # below each fixture, per the syntax in the comments below
 #
 one:
-  user: three
+  creator: three
   post: one
 # column: value
 #
 two:
-  user: two
+  creator: two
   post: one
 # column: value

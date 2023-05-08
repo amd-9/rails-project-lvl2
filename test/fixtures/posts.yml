@@ -3,11 +3,11 @@
 one:
   title: Post one
   body: First post body
-  user: one
+  creator: one
   category: one
 
 two:
   title: Post two
   body: Second post body
-  user: one
+  creator: one
   category: two

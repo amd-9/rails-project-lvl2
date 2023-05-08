@@ -4,9 +4,9 @@ class LikesController < ApplicationController
   before_action :set_post_id, only: :create
 
   def create
-    return redirect_to post_url(@post_id), error: t('.fail') if PostLike.exists?(user: current_user)
+    return redirect_to post_url(@post_id), error: t('.fail') if PostLike.exists?(creator: current_user)
 
-    @like = PostLike.new(user: current_user, post_id: @post_id)
+    @like = PostLike.new(creator: current_user, post_id: @post_id)
 
     return redirect_to post_url(@like.post_id) if @like.save
 
@@ -16,7 +16,7 @@ class LikesController < ApplicationController
   def destroy
     @like = PostLike.find(params[:id])
 
-    return redirect_to post_url(@like.post_id), error: t('.fail') if @like.user != current_user
+    return redirect_to post_url(@like.post_id), error: t('.fail') if @like.creator != current_user
 
     @like.destroy
 

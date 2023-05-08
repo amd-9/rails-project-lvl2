@@ -11,7 +11,7 @@ class PostsController < ApplicationController
   # GET /posts/1 or /posts/1.json
   def show
     @comments = @post.comments.roots
-    @like = PostLike.where(user: current_user).first unless current_user.nil?
+    @like = PostLike.where(creator: current_user).first unless current_user.nil?
   end
 
   # GET /posts/new
@@ -22,7 +22,7 @@ class PostsController < ApplicationController
   # POST /posts or /posts.json
   def create
     @post = Post.new(post_params)
-    @post.user = current_user
+    @post.creator = current_user
 
     if @post.save
       redirect_to post_url(@post), notice: t('post.create.success')

@@ -21,6 +21,8 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
     last_comment = @post.comments.last
 
     assert { last_comment.content == new_comment_content }
+
+    assert_redirected_to post_url(@post)
   end
 
   test 'should create comment for comment' do

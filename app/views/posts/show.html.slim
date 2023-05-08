@@ -2,7 +2,7 @@ article
   == render @post
   .d-flex.justify-content-between.mt-5
     div
-      span.me-2 = @post.user.email
+      span.me-2 = @post.creator.email
       span = "#{distance_of_time_in_words(@post.created_at, DateTime.now)} ago" 
     div
       span.me-2 = @post.likes.count
