@@ -33,7 +33,7 @@ jobs:
         run: make install
       
       - name: Build app and assests
-        run: bin/setup && yarn build && yarn build:css && bin/rails assets:precompile
+        run: bin/setup && yarn install && yarn build && yarn build:css && bin/rails assets:precompile
         
       - name: Lint rails and slim template
         run: make lint
