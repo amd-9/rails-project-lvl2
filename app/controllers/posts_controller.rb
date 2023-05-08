@@ -11,7 +11,7 @@ class PostsController < ApplicationController
   # GET /posts/1 or /posts/1.json
   def show
     @comments = @post.comments.roots
-    @like = PostLike.where(creator: current_user).first unless current_user.nil?
+    @like = PostLike.where(user: current_user).first unless current_user.nil?
   end
 
   # GET /posts/new
