@@ -32,8 +32,8 @@ jobs:
       - name: Install dependencies
         run: make install
       
-      - name: Build app
-        run: bin/setup && bin/rails assets:precompile
+      - name: Build app and assests
+        run: bin/setup && yarn build && yarn build:css && bin/rails assets:precompile
         
       - name: Lint rails and slim template
         run: make lint
