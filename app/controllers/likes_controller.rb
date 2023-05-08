@@ -1,19 +1,16 @@
 # frozen_string_literal: true
 
 class LikesController < ApplicationController
+  before_action :set_post_id, only: :create
+
   def create
-    if PostLike.exists?(user: current_user)
-      return redirect_to post_url(params[:post_id]),
-                         error: t('.fail')
-    end
+    return redirect_to post_url(@post_id), error: t('.fail') if PostLike.exists?(user: current_user)
 
-    @like = PostLike.new user: current_user, post_id: params[:post_id]
+    @like = PostLike.new(user: current_user, post_id: @post_id)
 
-    if @like.save
-      redirect_to post_url(@like.post_id)
-    else
-      redirect_to post_url(@like.post_id), error: t('.fail')
-    end
+    return redirect_to post_url(@like.post_id) if @like.save
+
+    redirect_to post_url(@like.post_id), error: t('.fail')
   end
 
   def destroy
@@ -24,5 +21,11 @@ class LikesController < ApplicationController
     @like.destroy
 
     redirect_to post_url(params[:post_id])
+  end
+
+  private
+
+  def set_post_id
+    @post_id = params[:post_id]
   end
 end
