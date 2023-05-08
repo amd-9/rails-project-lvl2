@@ -31,6 +31,9 @@ jobs:
       # Runs a single command using the runners shell
       - name: Install dependencies
         run: make install
+      
+      - name: Precompile assets
+        run: bin/rails assets:precompile
         
       - name: Lint rails and slim template
         run: make lint
