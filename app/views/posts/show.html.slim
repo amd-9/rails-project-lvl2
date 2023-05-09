@@ -3,20 +3,24 @@ article
   .d-flex.justify-content-between.mt-5
     div
       span.me-2 = @post.creator.email
-      span = "#{distance_of_time_in_words(@post.created_at, DateTime.now)} ago" 
+      span = "#{distance_of_time_in_words(@post.created_at, DateTime.now)} ago"
     div
       span.me-2 = @post.likes.count
       - if @like.nil?
-        = link_to post_likes_path(@post), data: { turbo_method: "post" }, class: 'link-dark' do
+        = link_to post_likes_path(@post), \
+            data: { turbo_method: 'post' },
+            class: 'link-dark' do
           span.bi.bi-hand-thumbs-up
       - else
-        = link_to post_like_path(@post, @like), data: { turbo_method: "delete" }, class: 'link-dark' do
+        = link_to post_like_path(@post, @like), \
+            data: { turbo_method: 'delete' },
+            class: 'link-dark' do
           span.bi.bi-hand-thumbs-up
 
 .lead.mt-3
   span = 'Comments'
 
-  == render "comments/form", comment: PostComment.new(:post_id => @post.id)
+  == render 'comments/form', comment: PostComment.new(post_id: @post.id)
 
   - @comments.each do |comment|
-    == render "comments/comment", comment: comment
+    == render 'comments/comment', comment:

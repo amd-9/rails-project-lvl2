@@ -22,7 +22,7 @@ test:
 
 lint:
 	rubocop
-	slim-lint
+	slim-lint app/**/*.slim
 
 lint-fix:
 	rubocop -A

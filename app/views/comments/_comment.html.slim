@@ -1,16 +1,20 @@
 .card.mt-2
   h5.card-header
-    span.me-2 
+    span.me-2
       = comment.user.email
     span.fs-6.text-muted
-      = "#{distance_of_time_in_words(comment.created_at, DateTime.now)} ago" 
+      = "#{distance_of_time_in_words(comment.created_at, DateTime.now)} ago"
   .card-body
     p.card-text
-      = comment.content 
-  .card-footer  
-    button.btn.btn-primary data-bs-toggle="collapse" data-bs-target="#collapse_#{comment.id}" aria-expanded="false" aria-controls="collapseExample" Reply
+      = comment.content
+  .card-footer
+    button.btn.btn-primary[
+      data-bs-toggle="collapse"
+      data-bs-target="#collapse_#{comment.id}"
+      aria-expanded="false"
+      aria-controls="collapseExample"] Reply
     .collapse id="collapse_#{comment.id}"
-      == render "comments/form", comment: PostComment.new(:parent => comment)
+      == render 'comments/form', comment: PostComment.new(parent: comment)
   .ms-4
     - comment.children.each do |child|
-      == render "comments/comment", comment: child
+      == render 'comments/comment', comment: child
