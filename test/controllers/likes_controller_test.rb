@@ -18,6 +18,15 @@ class LikesControllerTest < ActionDispatch::IntegrationTest
     end
   end
 
+  test 'should be possible to add like for different posts' do
+    second_post = posts(:two)
+
+    assert_changes 'PostLike.count', from: PostLike.count, to: PostLike.count + 2 do
+      post post_likes_url(@post)
+      post post_likes_url(second_post)
+    end
+  end
+
   test 'should remove like from post' do
     sign_in users(:three)
 
