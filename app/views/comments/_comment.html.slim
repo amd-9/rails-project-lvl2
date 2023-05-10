@@ -7,14 +7,15 @@
   .card-body
     p.card-text
       = comment.content
-  .card-footer
-    button.btn.btn-primary[
-      data-bs-toggle="collapse"
-      data-bs-target="#collapse_#{comment.id}"
-      aria-expanded="false"
-      aria-controls="collapseExample"] Reply
-    .collapse id="collapse_#{comment.id}"
-      == render 'comments/form', comment: PostComment.new(parent: comment)
+  - if user_signed_in?
+    .card-footer
+      button.btn.btn-primary[
+        data-bs-toggle="collapse"
+        data-bs-target="#collapse_#{comment.id}"
+        aria-expanded="false"
+        aria-controls="collapseExample"] Reply
+      .collapse id="collapse_#{comment.id}"
+        == render 'comments/form', comment: PostComment.new(parent: comment)
   .ms-4
     - comment.children.each do |child|
       == render 'comments/comment', comment: child

@@ -2,6 +2,7 @@
 
 class LikesController < ApplicationController
   before_action :set_post_id, only: :create
+  before_action :authenticate_user!
 
   def create
     return redirect_to post_url(@post_id), error: t('.fail') if PostLike.exists?(post_id: @post_id, user: current_user)
