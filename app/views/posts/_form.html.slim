@@ -2,5 +2,5 @@
   = f.error_notification
   = f.input :title
   = f.input :body, input_html: { rows: 10 }
-  = f.input :category_id, required: true, collection: Category.order(:name)
+  = f.association :category
   = f.button :submit, class: 'btn btn-primary'

@@ -2,4 +2,4 @@ en:
   comments:
     create:
       success: Post comment was successfully created.
-      fail: Error creating post comment.
+      fail: 'Error creating post comment. %{errors}'

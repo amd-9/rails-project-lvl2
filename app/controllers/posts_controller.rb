@@ -22,8 +22,7 @@ class PostsController < ApplicationController
 
   # POST /posts or /posts.json
   def create
-    @post = Post.new(post_params)
-    @post.creator = current_user
+    @post = Post.new(**post_params, creator: current_user)
 
     if @post.save
       redirect_to post_url(@post), notice: t('post.create.success')

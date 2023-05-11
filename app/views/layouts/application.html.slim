@@ -46,9 +46,13 @@ html
       .container
         - if flash.any?
           .container.my-2
-            - flash.each do |_type, msg|
-              .alert.alert-info
-                = msg
+            - flash.each do |type, msg|
+              - if type == 'alert'
+                .alert.alert-danger
+                  = msg
+              - else
+                .alert.alert-info
+                  = msg
         = yield
     footer.footer.mt-auto.py-3
       .container
