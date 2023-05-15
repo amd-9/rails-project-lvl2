@@ -18,5 +18,5 @@
       .collapse id="collapse_#{comment.id}"
         == render 'comments/form', comment: PostComment.new(parent: comment)
   .ms-4
-    - comment.children.each do |child|
-      == render 'comments/comment', comment: child
+    - children.each do |comment, children|
+      == render 'comments/comment', comment:, children:

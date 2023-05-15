@@ -11,7 +11,7 @@ class PostsController < ApplicationController
   # GET /posts/1 or /posts/1.json
   def show
     @post = Post.includes(:creator).find(params[:id])
-    @comments = @post.comments.includes(:user).roots
+    @comments = @post.comments.includes(:user).arrange
     @like = PostLike.where(user: current_user, post: @post).first
   end
 
