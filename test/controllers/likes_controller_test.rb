@@ -55,14 +55,18 @@ class LikesControllerTest < ActionDispatch::IntegrationTest
   test 'should not create multiple likes for post from same user' do
     sign_in users(:three)
 
-    post post_likes_url(@post)
+    assert_no_difference 'PostLike.count' do
+      post post_likes_url(@post)
+    end
 
-    assert_response :unprocessable_entity
+    assert_redirected_to post_url(@post)
   end
 
   test 'should not remove like of another user from post' do
-    delete post_like_url(@post, @second_like)
+    assert_no_difference 'PostLike.count' do
+      delete post_like_url(@post, @second_like)
+    end
 
-    assert_response :unprocessable_entity
+    assert_redirected_to post_url(@post)
   end
 end
