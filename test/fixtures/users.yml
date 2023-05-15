@@ -6,9 +6,12 @@
 #
 one:
   email: developer1@test.io
+  encrypted_password: <%= User.new.send(:password_digest, '12345678') %>
 
 two:
   email: developer2@test.io
+  encrypted_password: <%= User.new.send(:password_digest, '12345678') %>
 
 three:
   email: developer3@test.io
+  encrypted_password: <%= User.new.send(:password_digest, '12345678') %>

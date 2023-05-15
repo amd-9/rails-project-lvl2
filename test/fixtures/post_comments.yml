@@ -7,18 +7,5 @@ one:
 
 two:
   content: Second comment
-  user: one
+  user: three
   post: one
-
-nested:
-  content: Comment with nested comment
-  user: one
-  post: one
-  ancestry: <%= ActiveRecord::FixtureSet.identify(:with_comments) %>
-
-deep_nested:
-  content: Comment with deep nested comments
-  user: one
-  post: one
-  ancestry: <%= [ActiveRecord::FixtureSet.identify(:with_comments), ActiveRecord::FixtureSet.identify(:nested)].join('/') %>
-

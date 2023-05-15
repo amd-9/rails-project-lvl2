@@ -2,12 +2,20 @@
 
 one:
   title: Post one
-  body: First post body
+  body: > 
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris interdum leo dignissim mi interdum, eget imperdiet odio hendrerit. Maecenas nec porta nisl, sed congue nisi. Nunc fringilla lectus id metus venenatis consequat. Ut eget consectetur orci. Phasellus at quam suscipit, sodales erat eu, tincidunt urna. Aliquam mi nunc, scelerisque vitae velit in, accumsan porta augue. Nullam pretium orci quis mollis cursus.
+    Duis congue velit quis congue malesuada. Suspendisse potenti. Ut pretium non turpis ac congue. Nam arcu dui, mollis eu mauris a, pulvinar elementum turpis. Pellentesque ligula magna, malesuada varius est quis, maximus tempor mi. Sed euismod ante nec sem tempus aliquet. Pellentesque quis tellus in risus scelerisque commodo non sed arcu.
+    Quisque tortor erat, dapibus quis congue vitae, placerat suscipit nisl. Curabitur aliquet tincidunt purus eu convallis. Mauris posuere luctus lectus, at laoreet magna volutpat ut. Fusce a consequat justo, gravida bibendum elit. Praesent placerat efficitur pellentesque. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Proin auctor semper nisl, sit amet tincidunt nisi auctor sed.
+    Pellentesque ut est porta, consequat quam et, hendrerit justo. Aenean sagittis eros sed tellus malesuada rutrum. Etiam sem eros, pulvinar in condimentum vel, commodo non sapien. Morbi placerat nibh nibh, in venenatis libero malesuada vitae. Proin a eros euismod, gravida massa nec, tincidunt odio. Curabitur ligula eros, pharetra id eleifend vitae, fringilla vel odio. Aliquam et maximus turpis. Praesent in ultricies leo. Pellentesque et dictum lacus.
   creator: one
   category: one
 
 two:
   title: Post two
-  body: Second post body
+  body: >
+    Ut viverra tempor auctor. Ut pretium quis metus ut mattis. Donec quis faucibus quam. Nullam sollicitudin turpis eu risus placerat, nec egestas justo tincidunt. Cras ultrices enim ligula, sit amet dignissim dui euismod tincidunt. 
+    Phasellus tempor mi eu felis cursus semper. Integer semper volutpat consequat. 
+    Suspendisse ac elit dolor. Nam maximus orci lacus, eget ultricies mi dictum sit amet. Praesent vestibulum, justo vel rutrum pretium, urna orci convallis justo, vitae scelerisque dolor mi et ligula. Nulla in sem tellus. Vivamus blandit sodales nisl, eget semper nunc cursus eu.
+    Nunc vel libero et elit semper ultricies in nec ligula.
   creator: one
   category: two

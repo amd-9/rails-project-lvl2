@@ -7,9 +7,7 @@
 one:
   user: three
   post: one
-# column: value
-#
+
 two:
   user: two
   post: one
-# column: value
