@@ -9,7 +9,7 @@ h1 = t('.title')
         p.card-text
           = truncate post.body, length: 500
       .card-footer
-        span.me-2 = "#{t('.likes')}: #{post.likes.count}"
+        span.me-2 = "#{t('.likes')}: #{post.likes.size}"
         span.me-2
           = "#{distance_of_time_in_words(post.created_at, DateTime.now)} \
              #{t('.ago')}"
