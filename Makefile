@@ -20,6 +20,9 @@ console:
 test:
 	bin/rails test
 
+test-system:
+	bin/rails test:system
+
 lint:
 	rubocop
 	slim-lint app/**/*.slim

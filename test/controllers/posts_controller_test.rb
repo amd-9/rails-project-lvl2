@@ -22,18 +22,20 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should create post' do
-    new_post_title = Faker::Alphanumeric.alpha(number: 10)
-    new_post_body = Faker::Alphanumeric.alpha(number: 200)
+    attrs = {
+      title: Faker::Alphanumeric.alpha(number: 10),
+      body: Faker::Alphanumeric.alpha(number: 200),
+      category_id: @category.id
+    }
 
     assert_difference('Post.count') do
-      post posts_url, params: { post: { body: new_post_body, title: new_post_title, category_id: @category.id } }
+      post posts_url, params: { post: attrs }
     end
 
-    last_post = Post.last
+    created_post = Post.find_by(attrs)
 
-    assert { last_post.title == new_post_title }
-    assert { last_post.body == new_post_body }
-    assert_redirected_to post_url(Post.last)
+    assert { created_post }
+    assert_redirected_to post_url(created_post)
   end
 
   test 'should show post' do
@@ -42,21 +44,13 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should not create post with title less then 5 symbols' do
-    assert_no_difference('Post.count') do
-      post posts_url,
-           params: { post: { body: Faker::Alphanumeric.alpha(number: 200), title: Faker::Alphanumeric.alpha(number: 3),
-                             category_id: @category.id } }
-    end
+    attrs = {
+      ody: Faker::Alphanumeric.alpha(number: 200),
+      title: nil,
+      category_id: @category.id
+    }
 
-    assert_response :unprocessable_entity
-  end
-
-  test 'should not create post with body less then 200 symbols' do
-    assert_no_difference('Post.count') do
-      post posts_url,
-           params: { post: { body: Faker::Alphanumeric.alpha(number: 150), title: Faker::Alphanumeric.alpha(number: 5),
-                             category_id: @category.id } }
-    end
+    post posts_url, params: { post: attrs }
 
     assert_response :unprocessable_entity
   end

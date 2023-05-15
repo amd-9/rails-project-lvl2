@@ -2,8 +2,6 @@ en:
   post:
     create:
       success: Post successfully created.
-    edit:
-      title: Editing post
   posts:
     index:
       title: Posts

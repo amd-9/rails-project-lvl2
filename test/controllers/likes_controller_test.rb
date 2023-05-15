@@ -16,39 +16,53 @@ class LikesControllerTest < ActionDispatch::IntegrationTest
     assert_difference('PostLike.count') do
       post post_likes_url(@post)
     end
+
+    @post.reload
+
+    added_like = @post.likes.find_by(user: users(:one))
+
+    assert { added_like }
+    assert_redirected_to post_url(@post)
   end
 
   test 'should be possible to add like for different posts' do
     second_post = posts(:two)
 
-    assert_changes 'PostLike.count', from: PostLike.count, to: PostLike.count + 2 do
-      post post_likes_url(@post)
-      post post_likes_url(second_post)
-    end
+    post post_likes_url(@post)
+    post post_likes_url(second_post)
+
+    second_post.reload
+
+    added_like = second_post.likes.find_by(user: users(:one))
+
+    assert { added_like }
+    assert_redirected_to post_url(second_post)
   end
 
   test 'should remove like from post' do
     sign_in users(:three)
 
-    assert_changes 'PostLike.count', from: PostLike.count, to: PostLike.count - 1 do
-      delete post_like_url(@post, @first_like)
-    end
+    delete post_like_url(@post, @first_like)
+
+    @post.reload
+
+    deleted_post = @post.likes.find_by(user: users(:three))
+
+    assert_not deleted_post
+    assert_redirected_to post_url(@post)
   end
 
   test 'should not create multiple likes for post from same user' do
     sign_in users(:three)
 
-    assert_no_difference 'PostLike.count' do
-      post post_likes_url(@post)
-    end
+    post post_likes_url(@post)
 
-    assert_redirected_to post_url(@post)
+    assert_response :unprocessable_entity
   end
 
   test 'should not remove like of another user from post' do
     delete post_like_url(@post, @second_like)
 
-    assert { PostLike.exists? @second_like.id }
-    assert_redirected_to post_url(@post)
+    assert_response :unprocessable_entity
   end
 end

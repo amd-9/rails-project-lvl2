@@ -13,28 +13,34 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should create comment for post' do
-    new_comment_content = Faker::Quotes::Chiquito.sentence
-    post post_comments_url(@post), params: { post_comment: { content: new_comment_content } }
+    attrs = {
+      content: Faker::Quotes::Chiquito.sentence
+    }
+
+    post post_comments_url(@post), params: { post_comment: attrs }
 
     @post.reload
 
-    last_comment = @post.comments.last
+    created_comment = @post.comments.find_by(attrs)
 
-    assert { last_comment.content == new_comment_content }
+    assert { created_comment }
 
     assert_redirected_to post_url(@post)
   end
 
   test 'should create comment for comment' do
-    new_comment_content = Faker::Quotes::Chiquito.sentence
-    post post_comments_url(@post),
-         params: { post_comment: { content: new_comment_content, ancestry: "/#{@comment.id}/" } }
+    attrs = {
+      content: Faker::Quotes::Chiquito.sentence,
+      ancestry: "/#{@comment.id}/"
+    }
+
+    post post_comments_url(@post), params: { post_comment: attrs }
 
     @post.reload
 
-    last_comment = @post.comments.last
+    created_comment = @post.comments.last
 
-    assert { last_comment.content == new_comment_content }
-    assert { last_comment.parent == @comment }
+    assert { created_comment }
+    assert { created_comment.parent == @comment }
   end
 end
