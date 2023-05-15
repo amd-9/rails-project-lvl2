@@ -2,3 +2,14 @@ en:
   post:
     create:
       success: Post successfully created.
+    edit:
+      title: Editing post
+  posts:
+    index:
+      title: Posts
+      likes: Likes
+      ago: ago
+    show:
+      comments: Comments
+    new:
+      title: New post

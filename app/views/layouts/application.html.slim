@@ -1,7 +1,7 @@
 doctype html
 html
   head
-    title RailsProjectLvl2
+    title = t('.title')
     meta name="viewport" content="width=device-width,initial-scale=1"
     = csrf_meta_tags
     = csp_meta_tag
@@ -15,15 +15,8 @@ html
 
     main.flex-shrink-0
       .container
-        - if flash.any?
-          .container.my-2
-            - flash.each do |type, msg|
-              - if type == 'alert'
-                .alert.alert-danger
-                  = msg
-              - else
-                .alert.alert-info
-                  = msg
+        = render 'layouts/shared/flash'
+
         = yield
     footer.footer.mt-auto.py-3
       .container

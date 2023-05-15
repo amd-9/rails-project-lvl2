@@ -22,7 +22,7 @@ article
 
 .lead.mt-3
   - if user_signed_in?
-    span = 'Comments'
+    span = t('.comments')
     == render 'comments/form', comment: PostComment.new(post_id: @post.id)
   - @comments.each do |comment|
     == render 'comments/comment', comment:
