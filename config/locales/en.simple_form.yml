@@ -1,0 +1,7 @@
+en:
+  simple_form:
+    labels:
+      post:
+        title: Title
+        body: Body
+        category: Category
