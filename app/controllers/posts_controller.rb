@@ -10,9 +10,9 @@ class PostsController < ApplicationController
 
   # GET /posts/1 or /posts/1.json
   def show
-    @post = Post.includes(:creator).find(params[:id])
+    @post = Post.find(params[:id])
     @comments = @post.comments.includes(:user).arrange
-    @like = PostLike.where(user: current_user, post: @post).first
+    @like = PostLike.find_by(user: current_user, post: @post)
   end
 
   # GET /posts/new
