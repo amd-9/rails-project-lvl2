@@ -46,9 +46,9 @@ class LikesControllerTest < ActionDispatch::IntegrationTest
 
     @post.reload
 
-    deleted_post = @post.likes.find_by(user: users(:three))
+    deleted_like = @post.likes.find_by(user: users(:three))
 
-    assert_not deleted_post
+    assert_not deleted_like
     assert_redirected_to post_url(@post)
   end
 
