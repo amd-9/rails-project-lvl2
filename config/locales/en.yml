@@ -33,6 +33,8 @@ en:
   layouts:
     application:
       title: RailsProjectLvl2
+      log_in: Log in
       sing_in: Sign In
+      sing_up: Sing up
       sign_out: Sign Out
       register: Register
