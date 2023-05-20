@@ -4,11 +4,18 @@ setup:
 start:
 	bin/rails s -p "3000" -b "0.0.0.0"
 
+build-assets:
+	yarn build 
+	yarn build:css
+	bin/rails assets:precompile 
+
+build:
+	make setup
+	make build-assets
+
 start-railway:
-	yarn run build
-	yarn run build:css
+	make build-assets
 	bin/rails db:migrate
-	bin/rails assets:precompile
 	bin/rails s -p ${PORT} -b "0.0.0.0"
 
 install:
